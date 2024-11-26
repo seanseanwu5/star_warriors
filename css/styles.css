@@ -1,0 +1,246 @@
+/* css/styles.css */
+/* 全局样式 */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #000;
+    color: #fff;
+}
+
+/*-------------------------------------------------------*/
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle at 50% 0, #000000 0%, #1a1a1a 100%);
+    animation: starMove 10s linear infinite, nebulaMove 20s linear infinite;
+}
+
+@keyframes starMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+@keyframes nebulaMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+#gameCanvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#gameUI {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#scoreBoard {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    text-shadow: 2px 2px #000;
+    pointer-events: auto;
+}
+
+#muteBtn, #pauseBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    margin-left: 10px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+#pauseBtn {
+    right: 60px;
+}
+
+#startScreen, #gameOverScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    background-image: url('images/start_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    border: 2px solid #fff;
+    padding: 20px;
+    pointer-events: auto;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#startScreen h1, #gameOverScreen h2 {
+    font-size: 48px;
+    color: #ff0;
+    text-shadow: 2px 2px #000;
+}
+
+#startBtn, #restartBtn, #exitBtn {
+    padding: 15px 30px;
+    font-size: 24px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-family: inherit;
+    border: none;
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+#exitBtn {
+    background-color: #dc3545;
+}
+
+#startBtn:hover, #restartBtn:hover, #exitBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #fff;
+}
+
+.btn-group {
+    margin-top: 20px;
+}
+
+.btn-group a {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-group a:hover {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 0 10px #fff;
+}
+
+.btn {
+    display: inline-block;
+    margin: 5px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-outline-light {
+    border: 1px solid #fff;
+    color: #fff;
+    background: transparent;
+}
+
+.btn-outline-light:hover {
+    background: #fff;
+    color: #000;
+}
+
+.btn-outline-danger {
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    background: transparent;
+}
+
+.btn-outline-danger:hover {
+    background: #dc3545;
+    color: #fff;
+}
+
+.btn-success {
+    background: #28a745;
+    color: #fff;
+}
+
+.btn-success:hover {
+    background: #218838;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #0069d9;
+}
+
+.btn-warning {
+    background: #ffc107;
+    color: #212529;
+}
+
+.btn-warning:hover {
+    background: #e0a800;
+}
+
+/* 移动设备控制按钮 */
+#mobileControls {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    pointer-events: auto;
+}
+
+.control-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #fff;
+    font-size: 36px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.control-btn:active {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+@media (min-width: 768px) {
+    #mobileControls {
+        display: none;
+    }
+}
